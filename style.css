@@ -1,141 +1,94 @@
-body {
-    background-color: lightgreen;
-    
-    /* Smoothly transition the background color */
-    transition: background-color .5s;
-    }
-    
-    /* Using flex with the column direction to
-    align items in a vertical direction */
-    .player {
-    height: 95vh;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    }
-    
-    .details {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 25px;
-    }
-    
-    .track-art {
-    margin: 25px;
-    height: 250px;
-    width: 250px;
-    background-image: URL(
-        "https://source.unsplash.com/Qrspubmx6kE/640x360");
-    background-size: cover;
-    background-position: center;
-    border-radius: 15%;
-    }
-    
-    /* Changing the font sizes to suitable ones */
-    .now-playing {
-    font-size: 1rem;
-    }
-    
-    .track-name {
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+
+  body{
+    background-color:white;
+
+  }
+  
+  #wrapper{
+    height:100vh;
+    overflow-x:hidden;
+    overflow-y:auto;
+  }
+  
+  .container{
+    height:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:20px;
+  }
+  
+  .container h1{
+    margin: 20px 0px;
+    text-align: center;
+    margin-bottom: 20px;
     font-size: 3rem;
-    }
-    
-    .track-artist {
-    font-size: 1.5rem;
-    }
-    
-    /* Using flex with the row direction to
-    align items in a horizontal direction */
-    .buttons {
+  }
+  
+  .gallery{
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    }
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .card {
+    width:32%;
+    position:relative;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+   
+  .card img{
     
-    .playpause-track,
-    .prev-track,
-    .next-track {
+    width:100%;
+    height:100%;
+    filter: grayscale(100%);
+    box-shadow: 0 0 20px #333;
+    /* object-fit: cover; */
+    background-image: cover;
+    transform: scale(1.03);
+  }
+
+  .card,img{
+    filter: drop-shadow(0 0 20px rgba(238, 234, 232, 0.814));
+  }
+  
+  .card:hover {
+    transform: scale(1.03);
+    transition: 2s;
+    filter: drop-shadow(0 0 20px rgb(7, 212, 21));
+    /* rotate: 360deg;
+    border-radius: 100%; */
+    cursor:all-scroll;
+  }
+  
+  
+  .card:hover img {
+    filter: grayscale(0%);
+  }
+  
+  .card figcaption{
+    position: absolute;
+    bottom: 0;
+    left: 0;
     padding: 25px;
-    opacity: 0.8;
-    
-    /* Smoothly transition the opacity */
-    transition: opacity .2s;
-    }
-    
-    /* Change the opacity when mouse is hovered */
-    .playpause-track:hover,
-    .prev-track:hover,
-    .next-track:hover {
-    opacity: 1.0;
-    }
-    
-    /* Define the slider width so that it scales properly */
-    .slider_container {
-    width: 75%;
-    max-width: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    }
-    
-    /* Modify the appearance of the slider */
-    .seek_slider, .volume_slider {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    height: 5px;
-    background: black;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-    }
-    
-    /* Modify the appearance of the slider thumb */
-    .seek_slider::-webkit-slider-thumb,
-    .volume_slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    background: white;
-    cursor: pointer;
-    border-radius: 50%;
-    }
-    
-    /* Change the opacity when mouse is hovered */
-    .seek_slider:hover,
-    .volume_slider:hover {
-    opacity: 1.0;
-    }
-    
-    .seek_slider {
-    width: 60%;
-    }
-    
-    .volume_slider {
-    width: 30%;
-    }
-    
-    .current-time,
-    .total-duration {
-    padding: 10px;
-    }
-    
-    i.fa-volume-down,
-    i.fa-volume-up {
-    padding: 10px;
-    }
-    
-    /* Change the mouse cursor to a pointer
-    when hovered over */
-    i.fa-play-circle,
-    i.fa-pause-circle,
-    i.fa-step-forward,
-    i.fa-step-backward {
-    cursor: pointer;
-    }
-    
+    width: 100%;
+    height: 20%;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    opacity: 0;
+    border-radius: 0 0 10px 10px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+    transition: 0.3s;
+  }
+  
+  .card:hover figcaption {
+    opacity: 1;
+    transform: scale(1.03);
+  }  
